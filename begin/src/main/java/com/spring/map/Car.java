@@ -2,6 +2,7 @@ package com.spring.map;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Car {
 	private Map<Integer,Audi> audi;
@@ -16,7 +17,12 @@ public class Car {
 
 	public void display()
 	{
-		System.out.println(audi);
+		Iterator<Map.Entry<Integer, Audi>> itr=audi.entrySet().iterator();
+		while(itr.hasNext())
+		{
+			Map.Entry<Integer, Audi> entry=itr.next();
+			System.out.println("Audi"+entry.getKey()+" = "+entry.getValue().getColour());
+		}
 	}
 	
 }
